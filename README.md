@@ -16,6 +16,7 @@
 ## Docker
 
 - to build the image from project root => `docker build -t flask_demo:vx.x.x .` (you can check your images with `docker images`)
+  - this will not attach the container to any network but the default one
 - to run the Flask app' container => `docker run -p 80:5000 --name flask-api flask_demo:vx.x.x` (you can check your running containers with `docker ps`)
 
 ### database, volumes and networks
@@ -39,3 +40,12 @@
   - the `-v` flag tells Docker to bind mount a volume to the container at the specified path
   - the `-e` flag allows to specify an environment variable
 - to interact with the DB once it's running => `docker exec -it mysqldb mysql -u root -p`
+- to attach the Flask app' container to the same network than the DB =>
+
+  ```bash
+  docker run -d \
+  --network mysqlnet \
+  --name flask-api \
+  -p 80:5000 \
+  flask_demo:vx.x.x
+  ```
