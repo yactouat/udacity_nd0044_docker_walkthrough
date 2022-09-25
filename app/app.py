@@ -1,24 +1,29 @@
 from flask import Flask, jsonify
-import json
 import mysql.connector
+from time import sleep
 
 
 # ! do not take the habit of putting db credentials in the source code
 def connect_to_db(database=None):
     mydb = None
-    if database is None:
-        mydb = mysql.connector.connect(
-            host="mysqldb",
-            user="root",
-            password="p@ssw0rd1"
-        )
-    else:
-        mydb = mysql.connector.connect(
-            host="mysqldb",
-            user="root",
-            password="p@ssw0rd1",
-            database=database
-        )
+    while mydb is None:
+        sleep(1)
+        try:
+            if database is None:
+                mydb = mysql.connector.connect(
+                    host="mysqldb",
+                    user="root",
+                    password="p@ssw0rd1"
+                )
+            else:
+                mydb = mysql.connector.connect(
+                    host="mysqldb",
+                    user="root",
+                    password="p@ssw0rd1",
+                    database=database
+                )
+        except Exception as e:
+            print("not connected, trying again...")
     return mydb
 
 

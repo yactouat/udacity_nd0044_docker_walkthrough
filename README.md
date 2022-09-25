@@ -5,7 +5,9 @@
 - [flask_todo_app_example2](#flask_todo_app_example2)
     - [what is this ?](#what-is-this-)
     - [Docker](#docker)
-        - [database, volumes and networks](#database-volumes-and-networks)
+        - [without Docker Compose](#without-docker-compose)
+            - [database, volumes and networks](#database-volumes-and-networks)
+        - [with Docker Compose](#with-docker-compose)
 
 <!-- /TOC -->
 
@@ -15,11 +17,13 @@
 
 ## Docker
 
+### without Docker Compose
+
 - to build the image from project root => `docker build -t flask_demo:vx.x.x .` (you can check your images with `docker images`)
   - this will not attach the container to any network but the default one
 - to run the Flask app' container => `docker run -p 80:5000 --name flask-api flask_demo:vx.x.x` (you can check your running containers with `docker ps`)
 
-### database, volumes and networks
+#### database, volumes and networks
 
 - to persist MySQL data => `docker volume create mysql`
 - to persist MySQL config => `docker volume create mysql_config`
@@ -32,7 +36,7 @@
     --network mysqlnet \
     --name mysqldb \
     -e MYSQL_ROOT_PASSWORD=p@ssw0rd1 \
-    mysql
+    mysql:5.7.39
     ```
 
   - the `--rm` flag tells Docker to remove the container when it exits
@@ -49,3 +53,7 @@
   -p 80:5000 \
   flask_demo:vx.x.x
   ```
+
+### with Docker Compose
+
+`docker compose up` will run your whole application stack, simpler right ?
