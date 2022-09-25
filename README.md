@@ -3,12 +3,12 @@
 <!-- TOC -->
 
 - [flask_todo_app_example2](#flask_todo_app_example2)
-  - [what is this ?](#what-is-this-)
-  - [Docker](#docker)
-    - [without Docker Compose](#without-docker-compose)
-      - [database, volumes and networks](#database-volumes-and-networks)
-    - [with Docker Compose](#with-docker-compose)
-  - [CI/CD](#cicd)
+    - [what is this ?](#what-is-this-)
+    - [Docker](#docker)
+        - [without Docker Compose](#without-docker-compose)
+            - [database, volumes and networks](#database-volumes-and-networks)
+        - [with Docker Compose](#with-docker-compose)
+    - [CI/CD](#cicd)
 
 <!-- /TOC -->
 
@@ -61,4 +61,4 @@
 
 ## CI/CD
 
-You can follow along the instructions @ <https://docs.docker.com/language/python/configure-ci-cd/> to configure your CI/CD pipeline
+Everytime a push to main is made on github.com, the CI/CD pipeline will push a `latest` `flask_todos_example_v2` image on DockerHub.
