@@ -3,7 +3,10 @@ name: CI to DockerHub
 on:
 
   push:
-    branches: [main]
+    # only specific versions are pushed, instead of every commit updating the latest version on Docker Hub
+    # you can tag your repo with `git tag -a vx.x.x`
+    tags: 
+      - "v*.*.*"
 
 jobs:
 
@@ -33,7 +36,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/flask_todos_example_v2:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/flask_todos_example_v2:${{ github.ref_name }}
           # implementing cache here
           builder: ${{ steps.buildx.outputs.name }}
           cache-from: type=local,src=/tmp/.buildx-cache
