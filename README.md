@@ -3,11 +3,12 @@
 <!-- TOC -->
 
 - [flask_todo_app_example2](#flask_todo_app_example2)
-    - [what is this ?](#what-is-this-)
-    - [Docker](#docker)
-        - [without Docker Compose](#without-docker-compose)
-            - [database, volumes and networks](#database-volumes-and-networks)
-        - [with Docker Compose](#with-docker-compose)
+  - [what is this ?](#what-is-this-)
+  - [Docker](#docker)
+    - [without Docker Compose](#without-docker-compose)
+      - [database, volumes and networks](#database-volumes-and-networks)
+    - [with Docker Compose](#with-docker-compose)
+  - [CI/CD](#cicd)
 
 <!-- /TOC -->
 
@@ -57,3 +58,7 @@
 ### with Docker Compose
 
 `docker compose up` will run your whole application stack, simpler right ?
+
+## CI/CD
+
+You can follow along the instructions @ <https://docs.docker.com/language/python/configure-ci-cd/> to configure your CI/CD pipeline
