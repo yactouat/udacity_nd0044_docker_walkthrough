@@ -20,9 +20,9 @@
 
 ### without Docker Compose
 
-- to build the image from project root => `docker build -t flask_demo:vx.x.x .` (you can check your images with `docker images`)
+- to build the image from project root => `docker build -t flask_todos_example_v2:vx.x.x .` (you can check your images with `docker images`)
   - this will not attach the container to any network but the default one
-- to run the Flask app' container => `docker run -p 80:5000 --name flask-api flask_demo:vx.x.x` (you can check your running containers with `docker ps`)
+- to run the Flask app' container => `docker run -p 80:5000 --name flask-api flask_todos_example_v2:vx.x.x` (you can check your running containers with `docker ps`)
 
 #### database, volumes and networks
 
@@ -52,7 +52,7 @@
   --network mysqlnet \
   --name flask-api \
   -p 80:5000 \
-  flask_demo:vx.x.x
+  flask_todos_example_v2:vx.x.x
   ```
 
 ### with Docker Compose
